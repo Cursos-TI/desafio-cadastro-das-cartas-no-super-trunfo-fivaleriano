@@ -18,21 +18,28 @@ int main() {
      int npt;
 
 printf("Digite a letra do estado:\n");
-scanf(" %s", letra);
+       scanf(" %s", &letra);
 printf("Digite o código da carta:\n");
-scanf(" %s", codigo);
+       scanf(" %s", &codigo);
 printf("Digite o nome cidade:\n");
-scanf(" %s", cidade);
+       scanf(" %s", &cidade);
 printf("Digite a população da cidade:\n");
-scanf(" %f", popula);
+       scanf("%f", &popula);
 printf("Digite o tamanho da área:\n");
-scanf(" %f", are);
+       scanf("%f", &are);
 printf("Digite o PIB da cidade:\n");
-scanf(" %f", pib);
+       scanf("%f", &pib);
 printf("Digite a quantidade de pontos turísticos:\n");
-scanf("%d", npt);
+       scanf("%d", &npt);
 
 
+printf("Estado: %s\n", letra);
+printf("Codigo da carta: %s\n", codigo);
+printf("Nome da cidade: %s\n", cidade);
+printf("População: %f\n", popula);
+printf("Área: %f km²\n", are);
+printf("PIB: %f\n", pib);
+printf("Numero de pontos turísticos: %d\n", npt);
 
    
       
