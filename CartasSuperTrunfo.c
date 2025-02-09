@@ -1,60 +1,136 @@
 #include <stdio.h>
 
+int main () {
+
+      // Variaveis para comparação entre cartas do jogador 1 vs jogador 2.
+
+char estado[3], estado02[3];
+char codigocarta[5], codigocarta02[5];
+char nomecidade[50], nomecidade02[50];
+float populacao, populacao02;
+float area, area02;
+float pib, pib02;
+int npt, npt02;
+float sp, sp2;
 
 
-int main() {
+printf("###### INICO DO JOGO SUPER TRUNFO! ######\n");
 
-     printf("######   Desafio nivel novato cartas super trunfo!  ######\n");
+printf("###### Preencha os dados das cartas do jogador 01 ######\n");
 
+    
+                   // Preenchimento dos dados das cartas jogador 1.
 
-  // VARIAVEIS DAS CARTAS
+     printf("Digite a UF do estado:\n");
+           scanf(" %s", &estado);
 
-     char codigo[30];
-     char letra[10];
-     char cidade[50];
-     float popula;
-     float are;
-     float pib;
-     int npt;
+     printf("Digite o código da carta:\n");
+           scanf(" %s", &codigocarta);
 
-  // ENTRADA DE DADOS
+     printf("Digite o nome da cidade:\n");
+           scanf(" %s", &nomecidade);
 
-printf("Digite a letra do estado:\n");
-       scanf(" %s", &letra);
+     printf("Digite o numero de habitantes da cidade:\n");
+           scanf("%f", &populacao);
 
-printf("Digite o código da carta:\n");
-       scanf(" %s", &codigo);
+     printf("Digite o tamanho da área da cidade:\n");
+           scanf("%f", &area);
 
-printf("Digite o nome cidade:\n");
-       scanf(" %s", &cidade);
+     printf("Digite o PIB da cidade:\n");
+        scanf("%f", &pib);
 
-printf("Digite a população da cidade:\n");
-       scanf("%f", &popula);
-
-printf("Digite o tamanho da área:\n");
-       scanf("%f", &are);
-
-printf("Digite o PIB da cidade:\n");
-       scanf("%f", &pib);
-
-printf("Digite a quantidade de pontos turísticos:\n");
-       scanf("%d", &npt);
+     printf("Digite o numero de pontos turisticos da cidade:\n");
+           scanf("%d", &npt);
 
 
-  // SAIDA DE DADOS
+
+            // Preenchimento dos dados das cartas jogador 2.
+
+printf("###### Preencha os dados das cartas do jogador 02 ######\n");
+
+     printf("Digite a UF do estado:\n");
+           scanf(" %s", &estado02);
+
+     printf("Digite o código da carta:\n");
+           scanf(" %s", &codigocarta02);
+
+     printf("Digite o nome da cidade:\n");
+           scanf(" %s", &nomecidade02);
+
+     printf("Digite o numero de habitantes da cidade:\n");
+           scanf("%f", &populacao02);
+
+     printf("Digite o tamanho da área da cidade:\n");
+           scanf("%f", &area02);
+
+     printf("Digite o PIB da cidade:\n");
+           scanf("%f", &pib02);
+
+     printf("Digite o numero de pontos turisticos da cidade:\n");
+           scanf("%d", &npt02);
+
+      float dp, dp2;  // variavel para calcular Densidade populacional.
+      float ppc, ppc2; // variavel para PIB per capita.
+
+           // Calculo da Densidade populacional e PIB per capita do jogador 1.
+
+           dp = populacao / area;
+
+           ppc = pib / populacao;
+
+           // Calculo da Densidade populacional e PIB per capita do jogador 2.
+
+           dp2 = populacao02 / area02;
+
+           ppc2 = pib02 / populacao02;
+
+           // Calculo para definição do Super Poder!
+
+           sp = (float)populacao + area + pib + npt + dp + ppc; // calculo para o super poder da primeira carta.
+
+           sp2 = (float)populacao02 + area02 + pib02 + npt02 + dp2 + ppc2; // calculo para o super poder da segunda carta.
 
 
-printf("Estado: %s\n", letra);
-printf("Codigo da carta: %s\n", codigo);
-printf("Nome da cidade: %s\n", cidade);
-printf("População: %.2f milhões de habitantes\n", popula);
-printf("Área: %.2f km²\n", are);
-printf("PIB: R$%.2f milhões de reais\n", pib);
-printf("Numero de pontos turísticos: %d\n", npt);
+                   //Exibição dos dados das cartas ja preenchidas do jogador 1.
 
-   
+printf("###### Dados da carta do jogador 01 ######\n");
 
-   return 0;
+     printf("Estado: %s\nCodigo da carta: %s\nNome da cidade: %s\nPopulação: %.2f\n", estado, codigocarta, nomecidade, populacao);
+     printf("Área: %.2f km²\nPIB: R$ %.2f bilhoes de reais\nNumero de pontos turisticos: %d\n", area, pib, npt);
+     printf("Densidade populacional: %.2f pessoas/km²\nPIB per capita: %.2f reais\n", dp, ppc);
+     printf("Super Poder:%.2f\n", sp);
 
-      
+
+                  //Exibição dos dados das cartas ja preenchidas do jogador 2.
+
+printf("###### Dados da carta do jogador 02 ######\n");
+
+     printf("Estado: %s\nCodigo da carta: %s\nNome da cidade: %s\nPopulação: %.2f\n", estado02, codigocarta02, nomecidade02, populacao02);
+     printf("Área: %.2f km²\nPIB: R$ %.2f bilhoes de reais\nNumero de pontos turisticos: %d\n", area02, pib02, npt02);
+     printf("Densidade populacional: %.2f pessoas/km²\nPIB per capita: %.2f reais\n", dp2, ppc2);
+     printf("Super Poder:%.2f\n", sp2);
+     
+       
+                  // Comparação entre os dados da primeira e segunda carta.
+
+printf("###### Resultado da comparação entre as cartas ######\n");
+
+
+     printf("População:%d\n", populacao > populacao02); // comparação entre população da primeira e segunda carta.
+     printf("Area:%d\n", area > area02); // comparação da Area da primeira e segunda carta.
+     printf("PIB:%d\n", pib > pib02); // comparação do PIB da primeira e segunda carta.
+     printf("Numero de pontos turisticos:%d\n", npt > npt02); // comparação da quantidade de pontos turisticos da primeira e segunda carta.
+     printf("Densidade populacional:%d\n", dp < dp2); // comparação da densidade populacional. (OBS: nesse caso o vencedor e o que tiver o menor valor).
+     printf("PIB per capita:%d\n", ppc > ppc2); // comparação do PIB per capita da primeira e segunda carta.
+     printf("Super Poder:%d\n", sp > sp2); // comparação do super poder da primeira e segunda carta.
+
+
+
+
+
+     return 0;
+
+
+
+
 }
