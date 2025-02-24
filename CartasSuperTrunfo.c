@@ -5,7 +5,7 @@ int main () {
       // Variaveis para os dados das cartas do jogador 1 e jogador 2.
 
 char estado, estado02;
-char codigoCarta[5], codigoCarta02[5];
+char* codigoCarta[5], codigoCarta02[5];
 char nomecidade[50], nomecidade02[50];
 float populacao, populacao02;
 float area, area02;
@@ -71,6 +71,22 @@ printf("###### Preencha os dados das cartas do jogador 02 ######\n");
      printf("Digite o numero de pontos turisticos da cidade:\n");
            scanf("%d", &npt02);
 
+
+           float dp, dp2;  // variavel para calcular Densidade populacional.
+           float ppc, ppc2; // variavel para PIB per capita.
+     
+                // Calculo da Densidade populacional e PIB per capita do jogador 1.
+     
+                dp = populacao / area;
+     
+                ppc = pib / populacao;
+     
+                // Calculo da Densidade populacional e PIB per capita do jogador 2.
+     
+                dp2 = populacao02 / area02;
+     
+                ppc2 = pib02 / populacao02;
+
       
 
                    //Exibição dos dados das cartas ja preenchidas do jogador 1.
@@ -79,6 +95,7 @@ printf("###### Dados da carta do jogador 01 ######\n");
      printf("Carta 1:\n");
      printf("Estado: %c\nCodigo da carta: %s\nNome da cidade: %s\nPopulação: %.2f\n", estado, codigoCarta, nomecidade, populacao);
      printf("Área: %.2f km²\nPIB: R$ %.2f bilhoes de reais\nNumero de pontos turisticos: %d\n", area, pib, npt);
+     printf("Densidade populacional: %.2f pessoas/km²\nPIB per capita: %.2f reais\n", dp, ppc);
 
 
                   //Exibição dos dados das cartas ja preenchidas do jogador 2.
@@ -88,6 +105,9 @@ printf("###### Dados da carta do jogador 02 ######\n");
      printf("Carta 2:\n");
      printf("Estado: %c\nCodigo da carta: %s\nNome da cidade: %s\nPopulação: %.2f\n", estado02, codigoCarta02, nomecidade02, populacao02);
      printf("Área: %.2f km²\nPIB: R$ %.2f bilhoes de reais\nNumero de pontos turisticos: %d\n", area02, pib02, npt02);
+     printf("Densidade populacional: %.2f pessoas/km²\nPIB per capita: %.2f reais\n", dp2, ppc2);
+
+
      
      
        
